@@ -1,12 +1,6 @@
 window.dom = {
-  find(value) {
-    if (value.includes(`>`)) {
-      let valueList = value.split(`>`);
-      let scope = document.querySelectorAll(valueList[0])[0];
-      return scope.querySelectorAll(valueList[1]);
-    } else {
-      return document.querySelectorAll(value);
-    }
+  find(selector,scope) {
+    return (scope || document).querySelectorAll(selector)
   },
   style(node, name, value) {
     if (arguments.length === 3) {
